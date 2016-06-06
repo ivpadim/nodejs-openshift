@@ -1,5 +1,6 @@
 var EventEmitter = require("events").EventEmitter;
-var http = require("http");
+var http = require('http');
+var https = require("https");
 var util = require("util");
 
 /**
@@ -14,7 +15,7 @@ function Profile(username) {
     profileEmitter = this;
 
     //Connect to the API URL (http://teamtreehouse.com/username.json)
-    var request = http.get("http://teamtreehouse.com/" + username + ".json", function(response) {
+    var request = https.get("https://teamtreehouse.com/" + username + ".json", function(response) {
         var body = "";
 
         if (response.statusCode !== 200) {
